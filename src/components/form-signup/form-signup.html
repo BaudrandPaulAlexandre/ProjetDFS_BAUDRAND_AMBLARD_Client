@@ -1,0 +1,15 @@
+<h1>Inscription</h1>
+<p>S'incrire pour accéder au site</p>
+
+<form novalidate="" action="">
+  <label for="name">Nom</label>
+  <input type="text" name="name" id="name" placeholder="Nom" [(ngModel)]="name">
+
+  <label for="lastname">Prenom</label>
+  <input type="text" name="lastname" id="lastname" placeholder="Prénom" [(ngModel)]="lastname">
+
+  <label for="password">Mot de passe</label>
+  <input type="password" name="password" id="password" placeholder="*****" [(ngModel)]="password">
+
+  <button type="button" (click)="signup()">S'inscrire</button>
+</form>

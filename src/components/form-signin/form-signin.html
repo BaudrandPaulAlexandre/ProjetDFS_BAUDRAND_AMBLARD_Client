@@ -1,0 +1,19 @@
+<h1>Se connecter</h1>
+<p>Connectez vous pour accéder au site</p>
+
+<form novalidate="" action="" >
+    <label for="name" >Votre nom</label>
+    <input type="email" [(ngModel)]="name" name="name" id="name" placeholder="name">
+
+    <label for="password">Votre mot de passe</label>
+    <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="password">
+
+    <button type="button" (click)="login()">Se connecter</button>
+
+    <mat-error *ngIf="connected" style="color: red;">Connexion invalide</mat-error>
+
+    <p>
+        Si vous n'avez pas de compte, allez vous inscrire
+        <a rel="noopener noreferrer" href="#"  [routerLink]="['/signup']">S'inscrire</a>.
+    </p>
+</form>
