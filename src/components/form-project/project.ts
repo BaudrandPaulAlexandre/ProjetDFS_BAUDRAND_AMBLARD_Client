@@ -4,7 +4,7 @@ import { NgIf } from "@angular/common";
 import { Router } from "@angular/router";
 import { UserServices } from "../../services/user";
 import { Project } from "../../models/project";
-import {ProjectServices} from "../../services/project";
+import { ProjectServices } from "../../services/project";
 
 @Component({
   selector: 'app-project-form',

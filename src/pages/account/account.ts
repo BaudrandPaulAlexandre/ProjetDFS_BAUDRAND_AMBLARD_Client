@@ -15,6 +15,6 @@ import { NavbarComponent} from "../../components/html-navbar/navbar";
   templateUrl: './account.html',
   styleUrl: './account.css'
 })
-export class AccountComponent {
+export class AccountPage {
 
 }

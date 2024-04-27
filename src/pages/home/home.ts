@@ -3,7 +3,7 @@ import { UserServices } from "../../services/user";
 import { FooterComponent } from "../../components/html-footer/footer";
 import { HeaderComponent } from "../../components/html-header/header";
 import { NavbarComponent } from "../../components/html-navbar/navbar";
-import { ProjectsComponent } from "../../components/projects-all/projects";
+import { ProjectsAllComponent } from "../../components/projects-all/projects";
 
 @Component({
   selector: 'app-home',
@@ -12,12 +12,12 @@ import { ProjectsComponent } from "../../components/projects-all/projects";
       FooterComponent,
       HeaderComponent,
       NavbarComponent,
-      ProjectsComponent,
+      ProjectsAllComponent,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class HomeComponent {
+export class HomePage {
   currentUserName: string | undefined = this.currentUser.getCurrentUser().name;
 
   constructor(private currentUser: UserServices) {}

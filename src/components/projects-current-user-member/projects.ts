@@ -7,13 +7,13 @@ import { ProjectServices } from "../../services/project";
 import { User } from "../../models/user";
 
 @Component({
-  selector: 'app-projects-all',
+  selector: 'app-projects-current-user-member',
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './projects.html',
   styleUrls: ['./projects.css']
 })
-export class ProjectsAllComponent {
+export class ProjectsComponent {
   projects: Project[] = [];
   users: User[] = [];
   constructor(private projectServices: ProjectServices, private userServices : UserServices) { }

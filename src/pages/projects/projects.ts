@@ -5,17 +5,17 @@ import { FooterComponent } from "../../components/html-footer/footer";
 import { ProjectComponent } from "../../components/form-project/project";
 
 @Component({
-  selector: 'app-ecriture',
+  selector: 'app-projects',
   standalone: true,
   imports: [
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-      ProjectComponent
+    ProjectComponent
   ],
-  templateUrl: './project.html',
-  styleUrl: './project.css'
+  templateUrl: './projects.html',
+  styleUrl: './projects.css'
 })
-export class Project {
+export class ProjectsPage {
 
 }
