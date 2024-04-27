@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { SingInService } from "../../services/signin";
-
-// TODO: import Header, NavBar et Footer
 import { FooterComponent } from "../../components/html-footer/footer";
+import { HeaderComponent } from "../../components/html-header/header";
+import { NavbarComponent } from "../../components/html-navbar/navbar";
+import { ProjectsComponent } from "../../components/projects-all/projects";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-      // TODO: imports
       FooterComponent,
+      HeaderComponent,
+      NavbarComponent,
+      ProjectsComponent,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css'

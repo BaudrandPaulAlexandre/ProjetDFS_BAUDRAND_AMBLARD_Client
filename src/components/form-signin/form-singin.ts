@@ -25,7 +25,6 @@ export class SignInFormComponent implements OnInit {
     constructor(private signInService: SingInService, private router: Router) {}
 
     ngOnInit(): void {
-        // Initialisation
     }
 
     login() {

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'html-footer',
+  selector: 'html-header',
   standalone: true,
   imports: [],
-  templateUrl: './footer.html',
-  styleUrl: './footer.css'
+  templateUrl: './header.html',
+  styleUrl: './header.css'
 })
-export class FooterComponent {
+export class HeaderComponent {
   constructor() {
   }
   ngOnInit(): void {

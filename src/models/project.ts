@@ -3,6 +3,7 @@ export interface Project {
     name: string,
     desc: string,
     nbOfMembers: number,
-    maxNbOfMembers: number
+    maxNbOfMembers: number,
+    manager: number,
     members: number[]
 }

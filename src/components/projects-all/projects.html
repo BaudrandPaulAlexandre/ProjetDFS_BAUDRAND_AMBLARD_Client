@@ -1,0 +1,10 @@
+<div *ngFor="let project of displayProject">
+  <article [routerLink]="['/blog', project.id]">
+    <article>
+      <h2>{{ project.name }}</h2>
+      <p>Propriétaire : {{ project.manager }}</p>
+      <p>{{ project.desc }}</p>
+      <p>{{ project.nbOfMembers}} / {{ project.maxNbOfMembers }}</p>
+    </article>
+  </article>
+</div>
