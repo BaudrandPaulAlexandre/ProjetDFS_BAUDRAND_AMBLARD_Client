@@ -7,15 +7,14 @@ import { User } from "../models/user";
     providedIn: 'root'
 })
 
-export class SingInService {
-    private apiUrl = 'http://localhost:3333/users/login';
+export class UserServices {
+    private apiUrl = 'http://localhost:3333/users/';
     public currentUser : User | undefined;
-    constructor(private httpClient: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
     login(name: string, password: string): Observable<boolean> {
-        console.log('login server')
         return new Observable<boolean>((observer) => {
-            this.httpClient.post<User>(this.apiUrl, { name, password }).subscribe(
+            this.http.post<User>(this.apiUrl + 'login', { name, password }).subscribe(
                 (user: User) => {
                     this.currentUser = user;
                     console.log(this.currentUser);
@@ -34,7 +33,19 @@ export class SingInService {
         return !!this.currentUser;
     }
 
+    getUsers(): Observable<User[]> {
+        return this.http.get<User[]>(this.apiUrl, {withCredentials: true });
+    }
+
     getCurrentUser(): User {
         return <User>this.currentUser;
+    }
+
+    getUserById(id: number | undefined): Observable<User[]> {
+        return this.http.get<User[]>(this.apiUrl + `get/${id}`, { withCredentials: true});
+    }
+
+    addUser(user: User | undefined): Observable<any> {
+        return this.http.put(this.apiUrl + 'add', user,{ withCredentials: true});
     }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
 import { User } from "../../models/user";
-import { InscriptionService } from "../../services/signup";
+import { UserServices } from "../../services/user";
 
 @Component({
   selector: 'app-signup-form',
@@ -25,7 +25,7 @@ export class SignUpFormComponent {
   lastname : string = ""
   password : string = ""
 
-  constructor(private inscription : InscriptionService, private router: Router) { }
+  constructor(private inscription : UserServices, private router: Router) { }
 
   signup() {
 

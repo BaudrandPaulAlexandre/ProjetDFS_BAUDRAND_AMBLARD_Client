@@ -2,17 +2,15 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 
-import { SingInService } from "../services/signin";
-import { InscriptionService } from "../services/signup";
-import { ProjectService } from "../services/projects";
+import { UserServices } from "../services/user";
+import { ProjectServices } from "../services/project";
 
 @Component({
     selector: 'app-root',
     standalone: true,
     providers: [
-        SingInService,
-        InscriptionService,
-        ProjectService
+        UserServices,
+        ProjectServices
         ],
     imports: [
         RouterOutlet,

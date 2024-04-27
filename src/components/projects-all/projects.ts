@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from "@angular/router";
-import { SingInService } from "../../services/signin";
+import { UserServices } from "../../services/user";
 import { Project } from "../../models/project";
-import { ProjectService } from "../../services/projects";
+import { ProjectServices } from "../../services/project";
+import { User } from "../../models/user";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-projects-all',
@@ -14,17 +16,19 @@ import { ProjectService } from "../../services/projects";
 })
 export class ProjectsComponent {
   projects: Project[] = [];
-  project : Project | undefined;
-  displayProject: Project[] = [];
-  constructor(private projectService: ProjectService, private connexion : SingInService) { }
+  users: User[] = [];
+  constructor(private projectServices: ProjectServices, private userServices : UserServices) { }
 
   ngOnInit(): void {
-    this.projectService.getProjects().subscribe((project) => {
+    this.projectServices.getProjects().subscribe((project) => {
       this.projects = project
-      for (let i = 0; i < this.projects.length; i++) {
-          this.project = this.projects[i];
-          this.displayProject.push(this.project);
-      }
     });
+    this.userServices.getUsers().subscribe((user) => {
+      this.users = user;
+    });
+  }
+  getUserName(userId: number): string {
+    const user = this.users.find(user => user.id === userId);
+    return user ? user.name : 'Utilisateur inconnu';
   }
 }

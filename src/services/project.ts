@@ -6,14 +6,22 @@ import { Project } from "../models/project";
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService {
+export class ProjectServices {
 
-  private apiUrl = 'http://localhost:3333/projects';
+  private apiUrl = 'http://localhost:3333/projects/';
 
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.apiUrl, { withCredentials: true });
+  }
+
+  addProject(project: Project): Observable<any> {
+    return this.http.put(this.apiUrl + 'put', project,{ withCredentials: true})
+  }
+
+  delProject(id: number | undefined): Observable<any> {
+    return this.http.delete( this.apiUrl + `del/${id}`,{ withCredentials: true})
   }
 
   getProjectsByManager(id: number | undefined): Observable<Project | undefined> {
@@ -23,6 +31,6 @@ export class ProjectService {
   }
 
   addUser(idProject:number , idUser:number ): Observable<any> {
-    return this.http.post(this.apiUrl + '/add',{idProject, idUser}, { withCredentials: true });
+    return this.http.post(this.apiUrl + 'add',{idProject, idUser}, { withCredentials: true });
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SingInService } from '../../services/signin';
+import { UserServices } from '../../services/user';
 import { NgIf } from "@angular/common";
 
 
@@ -22,7 +22,7 @@ export class SignInFormComponent implements OnInit {
     password = '';
     connected = false;
 
-    constructor(private signInService: SingInService, private router: Router) {}
+    constructor(private signInService: UserServices, private router: Router) {}
 
     ngOnInit(): void {
     }

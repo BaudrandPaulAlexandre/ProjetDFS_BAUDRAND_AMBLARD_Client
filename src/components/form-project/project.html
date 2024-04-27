@@ -1,0 +1,17 @@
+<form [formGroup]="project" (ngSubmit)="onSubmit()" novalidate="" action="">
+  <div>Création d'un project</div>
+    <div>
+      <label for="name">Nom du projet</label>
+      <input id="name" formControlName="name" type="text" placeholder="Name">
+    </div>
+    <div>
+      <label for="desc">Description du projet</label>
+      <textarea id="desc" formControlName="desc" type="text"></textarea>
+    </div>
+    <div>
+        <label for="maxNbOfMembers">Nombre maximum de membres</label>
+        <input id="maxNbOfMembers" formControlName="maxNbOfMembers" type="number">
+    </div>
+  <button type="submit">Création du projet</button>
+</form>
+

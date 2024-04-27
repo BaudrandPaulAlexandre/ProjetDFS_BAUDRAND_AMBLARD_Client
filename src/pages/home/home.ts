@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SingInService } from "../../services/signin";
+import { UserServices } from "../../services/user";
 import { FooterComponent } from "../../components/html-footer/footer";
 import { HeaderComponent } from "../../components/html-header/header";
 import { NavbarComponent } from "../../components/html-navbar/navbar";
@@ -20,7 +20,7 @@ import { ProjectsComponent } from "../../components/projects-all/projects";
 export class HomeComponent {
   currentUserName: string | undefined = this.currentUser.getCurrentUser().name;
 
-  constructor(private currentUser: SingInService) {}
+  constructor(private currentUser: UserServices) {}
 
 }
 
