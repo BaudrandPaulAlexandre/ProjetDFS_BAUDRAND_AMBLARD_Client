@@ -5,7 +5,7 @@
     <p>{{ project.nbOfMembers}} / {{ project.maxNbOfMembers }}</p>
     <p> Membres : </p>
     <div *ngFor="let member of project.members">
-      {{ getUserName(member) }}
+        {{ getUserName(member) }}
     </div>
-
+    <button *ngIf="!isUserMember(project) && !isNotFull(project)" (click)="signUpToProject(project.id)">S'inscrire</button>
 </article>

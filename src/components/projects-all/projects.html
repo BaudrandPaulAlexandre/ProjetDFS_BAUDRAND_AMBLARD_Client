@@ -1,5 +1,6 @@
 <div *ngFor="let project of projects">
-  <article [routerLink]="['/project', project.id]">
-      <h2>{{ project.name }}</h2>
-  </article>
+    <article [routerLink]="['/project', project.id]">
+        <h2>{{ project.name }}</h2>
+    </article>
+    <button *ngIf="!isUserMember(project) && !isNotFull(project)" (click)="signUpToProject(project.id)">S'inscrire</button>
 </div>

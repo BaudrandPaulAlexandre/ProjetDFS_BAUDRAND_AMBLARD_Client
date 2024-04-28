@@ -33,4 +33,16 @@ export class ProjectComponent {
     return user ? user.name : 'Utilisateur inconnu';
   }
 
+  signUpToProject(idProject: number): void {
+    this.projectServices.addUser(idProject, this.userServices.getCurrentUser().id);
+  }
+
+  isUserMember(project: Project): boolean {
+    return project.members.includes(this.userServices.getCurrentUser().id);
+  }
+
+  isNotFull(project: Project): boolean {
+    return project.nbOfMembers >= project.maxNbOfMembers;
+  }
+
 }

@@ -15,11 +15,23 @@ import { User } from "../../models/user";
 })
 export class ProjectsAllComponent {
   projects: Project[] = [];
-  constructor(private projectServices: ProjectServices) { }
+  constructor(private projectServices: ProjectServices, private userServices: UserServices) { }
 
   ngOnInit(): void {
     this.projectServices.getProjects().subscribe((project) => {
       this.projects = project
     });
+  }
+
+  signUpToProject(idProject: number): void {
+    this.projectServices.addUser(idProject, this.userServices.getCurrentUser().id);
+  }
+
+  isUserMember(project: Project): boolean {
+    return project.members.includes(this.userServices.getCurrentUser().id);
+  }
+
+  isNotFull(project: Project): boolean {
+    return project.nbOfMembers >= project.maxNbOfMembers;
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Project } from "../models/project";
 
 @Injectable({
@@ -28,7 +28,7 @@ export class ProjectServices {
     return this.http.delete( this.apiUrl + `del/${id}`,{ withCredentials: true })
   }
 
-  addUser(idProject:number , idUser:number ): Observable<any> {
-    return this.http.post(this.apiUrl + 'add',{idProject, idUser}, { withCredentials: true });
+  addUser(idProject: number, idUser: number ): Observable<any> {
+    return this.http.put<Project>(this.apiUrl + `add/${idProject}`, idUser, { withCredentials: true });
   }
 }

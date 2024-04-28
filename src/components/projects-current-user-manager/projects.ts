@@ -15,20 +15,12 @@ import { User } from "../../models/user";
 })
 export class ProjectsCurentUserManagerComponent {
   projects: Project[] = [];
-  users: User[] = [];
   constructor(private projectServices: ProjectServices, private userServices : UserServices) { }
 
   ngOnInit(): void {
     this.projectServices.getProjects().subscribe((project) => {
       this.projects = project.filter(project => project.manager === this.userServices.getCurrentUser().id);
     });
-    this.userServices.getUsers().subscribe((user) => {
-      this.users = user;
-    });
-  }
-  getUserName(userId: number): string {
-    const user = this.users.find(user => user.id === userId);
-    return user ? user.name : 'Utilisateur inconnu';
   }
   
 }

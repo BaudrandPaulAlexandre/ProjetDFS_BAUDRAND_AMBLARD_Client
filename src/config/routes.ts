@@ -7,10 +7,8 @@ import { AccountPage } from "../pages/account/account";
 import { ProjectFormPage } from "../pages/project-form/project";
 import { ProjectShowPage } from "../pages/project-show/project";
 
-//TODO: réduire l'affichage des projets au nom, puis faire la redirection sur project/:id
+//TODO: inscription
 // <button (click)="signUpToProject(project.id)">S'inscrire</button>
-
-//TODO: inscription afficher si ce n'est pas le cas / le nombre total n'est pas atteint
 
 export const routes: Routes = [
     { path: '', redirectTo: 'singin', pathMatch: 'full' },
