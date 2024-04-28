@@ -5,7 +5,7 @@ import { FooterComponent } from "../../components/html-footer/footer";
 import { ProjectComponent } from "../../components/form-project/project";
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-project-form-page',
   standalone: true,
   imports: [
     HeaderComponent,
@@ -13,9 +13,9 @@ import { ProjectComponent } from "../../components/form-project/project";
     FooterComponent,
     ProjectComponent
   ],
-  templateUrl: './projects.html',
-  styleUrl: './projects.css'
+  templateUrl: './project.html',
+  styleUrl: './project.css'
 })
-export class ProjectsPage {
+export class ProjectFormPage {
 
 }

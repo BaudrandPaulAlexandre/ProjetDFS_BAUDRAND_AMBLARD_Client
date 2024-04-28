@@ -16,18 +16,16 @@ export class ProjectServices {
     return this.http.get<Project[]>(this.apiUrl, { withCredentials: true });
   }
 
+  getProjectById(id: number | undefined ): Observable<Project> {
+    return this.http.get<Project>(this.apiUrl + `get/${id}`, { withCredentials: true });
+  }
+
   addProject(project: Project): Observable<any> {
-    return this.http.put(this.apiUrl + 'put', project,{ withCredentials: true})
+    return this.http.put(this.apiUrl + 'put', project,{ withCredentials: true })
   }
 
   delProject(id: number | undefined): Observable<any> {
-    return this.http.delete( this.apiUrl + `del/${id}`,{ withCredentials: true})
-  }
-
-  getProjectsByManager(id: number | undefined): Observable<Project | undefined> {
-    return this.getProjects().pipe(
-      map(blogs => blogs.find(project => project.manager === id))
-    );
+    return this.http.delete( this.apiUrl + `del/${id}`,{ withCredentials: true })
   }
 
   addUser(idProject:number , idUser:number ): Observable<any> {

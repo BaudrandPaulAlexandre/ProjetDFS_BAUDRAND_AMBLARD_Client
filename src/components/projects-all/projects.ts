@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from "@angular/router";
+import { ProjectServices } from "../../services/project";
 import { UserServices } from "../../services/user";
 import { Project } from "../../models/project";
-import { ProjectServices } from "../../services/project";
 import { User } from "../../models/user";
 
 @Component({
@@ -15,19 +15,11 @@ import { User } from "../../models/user";
 })
 export class ProjectsAllComponent {
   projects: Project[] = [];
-  users: User[] = [];
-  constructor(private projectServices: ProjectServices, private userServices : UserServices) { }
+  constructor(private projectServices: ProjectServices) { }
 
   ngOnInit(): void {
     this.projectServices.getProjects().subscribe((project) => {
       this.projects = project
     });
-    this.userServices.getUsers().subscribe((user) => {
-      this.users = user;
-    });
-  }
-  getUserName(userId: number): string {
-    const user = this.users.find(user => user.id === userId);
-    return user ? user.name : 'Utilisateur inconnu';
   }
 }

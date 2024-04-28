@@ -1,27 +1,29 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import { ProjectServices } from "../../services/project";
 import { UserServices } from "../../services/user";
 import { Project } from "../../models/project";
 import { User } from "../../models/user";
 
 @Component({
-  selector: 'app-projects-current-user-manager',
+  selector: 'app-project-show',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './projects.html',
-  styleUrls: ['./projects.css']
+  templateUrl: './project.html',
+  styleUrls: ['./project.css']
 })
-export class ProjectsCurentUserManagerComponent {
-  projects: Project[] = [];
+export class ProjectComponent {
+  project: Project | undefined;
   users: User[] = [];
-  constructor(private projectServices: ProjectServices, private userServices : UserServices) { }
+  idProject : number | undefined;
+  constructor(private projectServices: ProjectServices, private userServices : UserServices, private idUrl: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.projectServices.getProjects().subscribe((project) => {
-      this.projects = project.filter(project => project.manager === this.userServices.getCurrentUser().id);
-    });
+    this.idProject = Number(this.idUrl.snapshot.paramMap.get('id'))
+    this.projectServices.getProjectById(this.idProject).subscribe((project) => {
+        this.project = project;
+    })
     this.userServices.getUsers().subscribe((user) => {
       this.users = user;
     });
@@ -30,5 +32,5 @@ export class ProjectsCurentUserManagerComponent {
     const user = this.users.find(user => user.id === userId);
     return user ? user.name : 'Utilisateur inconnu';
   }
-  
+
 }

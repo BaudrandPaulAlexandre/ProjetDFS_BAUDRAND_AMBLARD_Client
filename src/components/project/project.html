@@ -1,0 +1,11 @@
+<article *ngIf="project">
+    <h2>{{ project.name }}</h2>
+    <p>Propriétaire : {{ getUserName(project.manager) }}</p>
+    <p>{{ project.desc }}</p>
+    <p>{{ project.nbOfMembers}} / {{ project.maxNbOfMembers }}</p>
+    <p> Membres : </p>
+    <div *ngFor="let member of project.members">
+      {{ getUserName(member) }}
+    </div>
+
+</article>

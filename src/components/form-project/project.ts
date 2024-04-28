@@ -39,7 +39,6 @@ export class ProjectComponent {
   onSubmit() {
     this.projectServices.addProject(this.project.value).subscribe({
       next: data => {
-        console.log(data);
         this.router.navigateByUrl('/home');
       },
       error: err => console.error(err)
