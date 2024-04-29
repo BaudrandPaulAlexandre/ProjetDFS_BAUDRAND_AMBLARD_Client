@@ -7,9 +7,6 @@ import { AccountPage } from "../pages/account/account";
 import { ProjectFormPage } from "../pages/project-form/project";
 import { ProjectShowPage } from "../pages/project-show/project";
 
-//TODO: inscription
-// <button (click)="signUpToProject(project.id)">S'inscrire</button>
-
 export const routes: Routes = [
     { path: '', redirectTo: 'singin', pathMatch: 'full' },
     { path: 'signin', component: SignInFormComponent },

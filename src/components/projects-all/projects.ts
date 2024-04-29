@@ -24,8 +24,14 @@ export class ProjectsAllComponent {
   }
 
   signUpToProject(idProject: number): void {
-    this.projectServices.addUser(idProject, this.userServices.getCurrentUser().id);
+    this.projectServices.addUser(idProject, this.userServices.getCurrentUser().id).subscribe({
+      next: response => {
+        console.log(response);
+    }
+
+    });
   }
+
 
   isUserMember(project: Project): boolean {
     return project.members.includes(this.userServices.getCurrentUser().id);

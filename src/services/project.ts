@@ -29,6 +29,6 @@ export class ProjectServices {
   }
 
   addUser(idProject: number, idUser: number ): Observable<any> {
-    return this.http.put<Project>(this.apiUrl + `add/${idProject}`, idUser, { withCredentials: true });
+    return this.http.put(this.apiUrl + `add/${idProject}`, {id: idUser}, { withCredentials: true });
   }
 }
