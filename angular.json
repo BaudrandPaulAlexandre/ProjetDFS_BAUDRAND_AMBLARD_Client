@@ -23,7 +23,7 @@
             "assets": [
             ],
             "styles": [
-
+              "src/config/styles.css"
             ],
             "scripts": []
           },

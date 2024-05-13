@@ -1,15 +1,31 @@
-<h1>Inscription</h1>
-<p>S'incrire pour accéder au site</p>
 
-<form novalidate="" action="">
-  <label for="name">Nom</label>
-  <input type="text" name="name" id="name" placeholder="Nom" [(ngModel)]="name">
-
-  <label for="lastname">Prenom</label>
-  <input type="text" name="lastname" id="lastname" placeholder="Prénom" [(ngModel)]="lastname">
-
-  <label for="password">Mot de passe</label>
-  <input type="password" name="password" id="password" placeholder="*****" [(ngModel)]="password">
-
-  <button type="button" (click)="signup()">S'inscrire</button>
-</form>
+<div class="flex items-center justify-center p-12">
+  <h1 class="text-black font-bold text-4xl font-sans">Formulaire d'Inscription</h1>
+</div>
+<div class="flex items-center justify-center p-12">
+  <div class="mx-auto w-full max-w-[550px]">
+    <form>
+      <div class="-mx-3 flex flex-wrap">
+        <div class="w-full px-3 sm:w-1/2">
+          <div class="mb-5">
+            <label for="name" class="mb-3 block text-base font-medium text-[#07074D]"> Nom </label>
+            <input type="text" name="name" [(ngModel)]="name" id="name" placeholder="Nom" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
+          </div>
+        </div>
+        <div class="w-full px-3 sm:w-1/2">
+          <div class="mb-5">
+            <label for="lastname" class="mb-3 block text-base font-medium text-[#07074D]">Prénom</label>
+            <input type="text" name="lastname" [(ngModel)]="lastname" id="lastname" placeholder="Prénom" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
+          </div>
+        </div>
+      </div>
+      <div class="mb-5">
+        <label for="password" class="mb-3 block text-base font-medium text-[#07074D]">Mot de passe</label>
+        <input type="password" name="password" [(ngModel)]="password" id="password" placeholder="**********" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
+      </div>
+      <div>
+        <button type="button" (click)="signup()" class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">S'inscrire</button>
+      </div>
+    </form>
+  </div>
+</div>
