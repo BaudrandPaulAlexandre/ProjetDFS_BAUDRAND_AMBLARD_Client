@@ -32,7 +32,6 @@ export class ProjectsAllComponent {
     });
   }
 
-
   isUserMember(project: Project): boolean {
     return project.members.includes(this.userServices.getCurrentUser().id);
   }

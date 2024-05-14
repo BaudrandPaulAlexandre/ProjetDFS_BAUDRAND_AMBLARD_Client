@@ -1,11 +1,21 @@
-<article *ngIf="project">
-    <h2>{{ project.name }}</h2>
-    <p>Propriétaire : {{ getUserName(project.manager) }}</p>
-    <p>{{ project.desc }}</p>
-    <p>{{ project.nbOfMembers}} / {{ project.maxNbOfMembers }}</p>
-    <p> Membres : </p>
-    <div *ngFor="let member of project.members">
-        {{ getUserName(member) }}
+
+<div class="flex justify-center">
+    <div class="grid grid-cols-1 gap-4">
+        <div class="bg-purple-400 min-w-52 min-h-32 m-8 static rounded-lg overflow-hidden">
+            <div *ngIf="project" class="bg-white min-w-52 min-h-32 p-4 flex flex-col justify-between">
+                <h1 class="text-2xl font-bold">{{ project.name }}</h1>
+                <hr class="rounded-2xl border-t-2 my-2">
+                <p class="text-sm font-normal text-gray-600">Propriétaire : {{ getUserName(project.manager) }}</p>
+                <hr class="rounded-2xl border-t-2 my-2">
+                <p class="text-sm font-normal text-gray-600">Nombre de membres : {{ project.nbOfMembers}} / {{ project.maxNbOfMembers }}</p>
+                <hr class="rounded-2xl border-t-2 my-2">
+                <p class="text-sm font-normal text-gray-600">Membres :</p>
+                <div class="text-sm font-normal text-gray-600" *ngFor="let member of project.members"> {{ getUserName(member) }} </div>
+                <hr class="rounded-2xl border-t-2 my-2">
+                <p class="text-sm font-normal text-gray-600">Description : {{ project.desc}}</p>
+                <hr class="rounded-2xl border-t-2 my-2">
+                <button *ngIf="!isUserMember(project) && !isNotFull(project)" (click)="signUpToProject(project.id)" class="hover:shadow-form rounded-md bg-[#6A64F1] py-1 px-3 text-center text-base font-semibold text-white outline-none mt-auto">S'inscrire</button>
+            </div>
+        </div>
     </div>
-    <button *ngIf="!isUserMember(project) && !isNotFull(project)" (click)="signUpToProject(project.id)">S'inscrire</button>
-</article>
+</div>

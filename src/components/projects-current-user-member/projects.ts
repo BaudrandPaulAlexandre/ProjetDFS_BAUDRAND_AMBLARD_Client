@@ -19,7 +19,23 @@ export class ProjectsCurentUserMemberComponent {
 
   ngOnInit(): void {
     this.projectServices.getProjects().subscribe((project) => {
-      this.projects = project.filter(project => project.members.includes(this.userServices.getCurrentUser().id));
+      this.projects = project.filter(project => project.members.includes(this.userServices.getCurrentUser().id) && project.manager != this.userServices.getCurrentUser().id);
     });
+  }
+
+  signUpToProject(idProject: number): void {
+    this.projectServices.addUser(idProject, this.userServices.getCurrentUser().id).subscribe({
+      next: response => {
+        console.log(response);
+      }
+    });
+  }
+
+  isUserMember(project: Project): boolean {
+    return project.members.includes(this.userServices.getCurrentUser().id);
+  }
+
+  isNotFull(project: Project): boolean {
+    return project.nbOfMembers >= project.maxNbOfMembers;
   }
 }

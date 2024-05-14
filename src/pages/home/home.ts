@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { UserServices } from "../../services/user";
 import { FooterComponent } from "../../components/html-footer/footer";
-import { HeaderComponent } from "../../components/html-header/header";
 import { NavbarComponent } from "../../components/html-navbar/navbar";
 import { ProjectsAllComponent } from "../../components/projects-all/projects";
 
@@ -10,7 +9,6 @@ import { ProjectsAllComponent } from "../../components/projects-all/projects";
   standalone: true,
   imports: [
       FooterComponent,
-      HeaderComponent,
       NavbarComponent,
       ProjectsAllComponent,
   ],
